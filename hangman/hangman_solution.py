@@ -40,11 +40,27 @@ class Hangman:
     ask_letter()
         Asks the user for a letter.
     '''
+
+    word = ''
+    word_guessed = ['_' for l in word]
+    num_letters = 0
+    num_lives = 0
+    list_letters = []
+   
+
     def __init__(self, word_list, num_lives=5):
-        # TODO 2: Initialize the attributes as indicated in the docstring
-        # TODO 2: Print two message upon initialization:
-        # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
-        # 2. {word_guessed}
+        self.wordlist = word_list
+        self.num_lives = num_lives
+
+        print(f'The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters')
+        print(f'{self.word_guessed}')
+
+
+
+        # TODO 2: Initialize the attributes as indicated in the docstring - complete
+        # TODO 2: Print two message upon initialization: - complete
+        # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters) - complete
+        # 2. {word_guessed} - complete
         pass
 
     def check_letter(self, letter) -> None:
