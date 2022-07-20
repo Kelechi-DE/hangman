@@ -60,7 +60,7 @@ class Hangman:
         self.word_guessed = ['_' for l in self.word]
         self.num_letters = len(set(self.word))
 
-        self.word_copy = self.word
+        # self.word_copy = self.word
         
         print(f'The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters')
         print(f'word guessed: {self.word_guessed}')
@@ -82,44 +82,38 @@ class Hangman:
 
         if letter in self.word and self.num_lives != 0 :
             
-            if self.word_guessed != list(self.word):
+            #fill word guessed
+            for i in range(len(self.word)):
+                if self.word[i] == letter:
+                    self.word_guessed[i] = letter
+    
+            #reduces the number of unique letters not guessed by one
+            self.num_letters -= 1
+            
+            #displays message
+            print(f'Nice! {letter} is in the word')
+            print(f'word: {self.word_guessed}')
+        
+            #adds letter to list
+            self.list_letters.append(letter)
 
-                if letter in self.word_copy:
-
-                    #search and replace letter in word guessed            
-                    index = self.word_copy.index(letter)
-                    self.word_guessed[index] = letter
-
-                    #alters word to allow index() search for duplicate letters
-                    l_word = list(self.word_copy)
-                    l_word[index] = '_'
-                    self.word_copy = ''.join(l_word)
-
-                    # print(self.word_copy)
+            if self.word_guessed == list(self.word):
 
                 #displays message
-                print(f'Nice! {letter} is in the word')
-                print(f'word: {self.word_guessed}')
-            
+                print("Congratulations, you won!")
+                print(f"the word is {self.word}")
 
-                # #adds letter to list
-                # self.list_letters.append(letter)
+            else:
 
-                if self.word_guessed == list(self.word):
-                    #displays message
-                    print("Congratulations, you won!")
-                    print(f"the word is {self.word}")
-
-                else:
-
-                    #calls method
-                    self.ask_letter()
+                #calls method
+                self.ask_letter()
 
         
         elif letter not in self.word and self.num_lives != 0:
 
             #reduces number of lives left
             self.num_lives -= 1
+    
 
             #adds letter to list
             self.list_letters.append(letter)
