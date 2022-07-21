@@ -144,7 +144,7 @@ class Hangman:
         '''
 
         #user input
-        letter = input("Please, enter just one alphabet: \n")
+        letter = input("Please, enter just one letter: \n")
 
         #sentinel value 
         sentinel = 0
@@ -172,25 +172,25 @@ class Hangman:
                         print(f"{letter} was already tried")
 
                         #prompts user to input letter
-                        letter = input("Please, enter just one alphabet: \n")
+                        letter = input("Please, enter just one letter: \n")
 
                 else:
                     print(f'{letter} is not an alphabet')
 
                     #prompts user to input letter
-                    letter = input("Please, enter just one alphabet: \n")
+                    letter = input("Please, enter just one letter: \n")
 
             elif ((len(letter) != 1) or len(letter) == 1) and (letter.isalpha() != True):
 
                 print(f'{letter} is not an alphabet')
 
                 #prompts user to input letter
-                letter = input("Please, enter just one alphabet: \n")
+                letter = input("Please, enter just one letter: \n")
 
             else:
                 
                 #prompts user to input letter
-                letter = input("Please, enter just one alphabet: \n")
+                letter = input("Please, enter just one letter: \n")
                 
 
 
